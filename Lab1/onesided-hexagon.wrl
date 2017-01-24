@@ -1,5 +1,7 @@
 #VRML V2.0 utf8
-#one sided hexagon, has to be rotated to be viewed due to viewing angle 
+
+# Author: Christian Abdelmassih
+# Description: One sided hexagon, has to be rotated to be viewed due to viewing angle 
 
 Background {skyColor 0 0 1}
 
@@ -16,17 +18,17 @@ Shape {
 	geometry IndexedFaceSet {
 		coord Coordinate {
                 point [
-				1  		0  		0	#vertex 0
+				1  	0  	0	#vertex 0
 				0.5  	-1   	0	#vertex 1
 				-0.5  	-1  	0	#vertex 2
-				-1  	0  		0	#vertex 3
-				-0.5  	1  		0	#vertex 4
-				0.5  	1  		0	#vertex 5
+				-1  	0  	0	#vertex 3
+				-0.5  	1  	0	#vertex 4
+				0.5  	1  	0	#vertex 5
                 ]
             }
 		coordIndex [
 			#bottom 
-			 0,  1,  2,  3,  4,  5
+			 5, 4, 3, 2, 1, 0, -1,
 			]
 			
 	}

@@ -1,5 +1,7 @@
 #VRML V2.0 utf8
-#a cube made up of 6 squares
+
+# Author: Christian Abdelmassih
+# Description: a hypercube made up of two cubes making a hole into the inner cube made up of 16 squares
 
 Background {skyColor 0 0 1}
 
@@ -58,6 +60,15 @@ Shape {
 			# inner side 2
 				4, 8, 11, 7, -1,
 
+			# outer link 1
+				0, 12, 8, 4, -1,
+			# outer link 2
+				5, 9, 13, 1, -1,
+			# outer link 3
+				2, 14, 10, 6, -1,
+			# outer link 4
+				7, 11, 15, 3, -1,
+
 			#upper bottom
 				8, 9, 10, 11, -1,
 			#upper side 1
@@ -66,6 +77,11 @@ Shape {
 				10, 14, 15, 11, -1,
 			#top
 				15, 14, 13, 12, -1,
+			#outer side 1
+				1,13,14,2,-1,
+			#outer side 2
+				3,15,12,0,-1,
+
 			]
 			
 	}
