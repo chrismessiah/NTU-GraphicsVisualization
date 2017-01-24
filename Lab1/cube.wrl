@@ -17,13 +17,13 @@ Shape {
 		coord Coordinate {
                 point [
 				# bottom vertices
-				1  		-1  		-1	#vertex 0
+				1  		-1  	-1	#vertex 0
 				-1  	-1   	-1	#vertex 1
 				-1  	1 	 	-1	#vertex 2
 				1  		1  		-1	#vertex 3
 
 				# upper verticess
-				1  		-1  		1	#vertex 4
+				1  		-1  	1	#vertex 4
 				-1  	-1   	1	#vertex 5
 				-1  	1 	 	1	#vertex 6
 				1  		1  		1	#vertex 7
