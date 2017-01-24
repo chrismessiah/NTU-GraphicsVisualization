@@ -1,0 +1,72 @@
+#VRML V2.0 utf8
+#a cube made up of 6 squares
+
+Background {skyColor 0 0 1}
+
+
+Shape {
+	appearance Appearance{
+		material Material { 
+			diffuseColor     1 0 0   #r g b
+			specularColor    1 1 1
+			transparency 0 
+			shininess 1
+			}
+		}
+	geometry IndexedFaceSet {
+		coord Coordinate {
+               		point [
+			# bottom vertices
+			1  	-1  	-1	#vertex 0
+			-1  	-1   	-1	#vertex 1
+			-1  	1 	 -1	#vertex 2
+			1  	1  	-1	#vertex 3
+
+			# bottom upper vertices
+			0.5  	-0.5  	-0.5	#vertex 4
+			-0.5  	-0.5   	-0.5	#vertex 5
+			-0.5  	0.5 	-0.5	#vertex 6
+			0.5  	0.5  	-0.5	#vertex 7	
+
+			# ------------------- SEPARATOR ----------------------
+			
+			# upper bottom vertices
+			0.5  	-0.5  	0.5	#vertex 8
+			-0.5  	-0.5   	0.5	#vertex 9
+			-0.5  	0.5 	0.5	#vertex 10
+			0.5  	0.5  	0.5	#vertex 11		
+
+			# upper verticess
+			1  	-1  	1	#vertex 12
+			-1  	-1   	1	#vertex 13
+			-1  	1 	 1	#vertex 14
+			1  	1  	1	#vertex 15
+                		]
+            		}
+		coordIndex [
+			#bottom 
+				0, 1, 2, 3, -1,
+			#bottom upper
+				7, 6, 5, 4, -1,
+			#bottom side 1
+				0, 4, 5, 1, -1,
+			#bottom side 2
+				2, 6, 7, 3, -1,
+
+			# inner side 1
+				6, 10, 9, 5, -1,
+			# inner side 2
+				4, 8, 11, 7, -1,
+
+			#upper bottom
+				8, 9, 10, 11, -1,
+			#upper side 1
+				8, 12, 13, 9, -1,
+			#upper side 2
+				10, 14, 15, 11, -1,
+			#top
+				15, 14, 13, 12, -1,
+			]
+			
+	}
+}
