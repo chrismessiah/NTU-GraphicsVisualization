@@ -1,6 +1,7 @@
 #VRML V2.0 utf8
 
-# The following EXTERNPROTO definitins remain the same for all FVRML scenes.
+# Author: Christian Abdelmassih
+# Description: An ellipse and arc. To see arc please uncomment mentioned section bellow.
 
 EXTERNPROTO FGeometry [
 	exposedField SFString definition
