@@ -88,7 +88,7 @@ polygonizer	"analytical_curve"    # only for curves, remove for surfices
 
 geometry FGeometry {
 definition "x=1.5*sin(u);		y=cos(u);		z=0;"
-parameters [0 6.24] # 0 to 2pi
+parameters [0 6.28] # 0 to 2pi
 resolution [100]
 
  }     
