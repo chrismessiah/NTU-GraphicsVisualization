@@ -90,7 +90,7 @@ geometry FGeometry {
 
 definition	 "x=u;		y=v;		z=w;"
 
-parameters [0.000001 1		 0.00001 1		0.00001 1]
+parameters [0 1		 0 1		0 1]
 resolution [75 75]
 
  }     
