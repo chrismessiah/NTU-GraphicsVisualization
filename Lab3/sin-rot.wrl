@@ -97,11 +97,11 @@ diffuseColor "r=1; g=0; b=0;"
 }
 geometry FGeometry {
 resolution [36 18]
-parameters [-1 1 0 1]
+parameters [-1 1 0 1 0 1]
 definition "
 		x=u;
-		y=sin(u*2*pi) 		*	 cos(v*2*pi*t);
-		z=sin(u*2*pi)		*	 sin(v*2*pi*t);"
+		y=sin(u*2*pi)*w*t 		*	 cos(v*2*pi*t);
+		z=sin(u*2*pi)*w*t	*	 sin(v*2*pi*t);"
   }     }
 
 ]}
