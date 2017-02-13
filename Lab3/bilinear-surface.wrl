@@ -88,7 +88,7 @@ Inline {url "http://www3.ntu.edu.sg/home/assourin/FVRML/CoordinateAxes.wrl"}
 FShape {
 geometry FGeometry {
 
-definition	 "x=-1+2*u;		y=1-u-v+1.5*u*v;		z=-1+2*v;"
+definition	 "x=u+v-u*v;		y=-2*u+2*v+2*u*v;		z=u+3*v-4*u*v;"
 
 parameters [0 1 0 1]
 resolution [75 75]
