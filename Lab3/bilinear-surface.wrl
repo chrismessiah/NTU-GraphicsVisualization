@@ -88,10 +88,9 @@ Inline {url "http://www3.ntu.edu.sg/home/assourin/FVRML/CoordinateAxes.wrl"}
 FShape {
 geometry FGeometry {
 
-# represents the plane z=x+y
-definition	 "x=abs(u+v-0.5);		y=u-v;		z=0;"
+definition	 "x=-1+2*u;		y=1-u-v+1.5*u*v;		z=-1+2*v;"
 
-parameters [0 0.5 0 0.5]
+parameters [0 1 0 1]
 resolution [75 75]
 
  }     
