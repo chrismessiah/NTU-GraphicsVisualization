@@ -80,42 +80,40 @@ EXTERNPROTO FTransform [
 ] "http://www3.ntu.edu.sg/home/assourin/FVRML/FVRML.wrl#FTransform"
 
 Background {skyColor 0 0 1}
-
-# External VRML object "coordinate system" is included in the scene
 Inline {url "http://www3.ntu.edu.sg/home/assourin/FVRML/CoordinateAxes.wrl"}
-
-
 FShape {
-geometry FGeometry {
+	geometry FGeometry {
 
-# Function script defining the CSG solid. 
-# Change to some other formulae to see how the solid geometry changes 
-# based on the parameters domain and the sampling resolution defined below
-	definition "function frep(x,y,z,t){
-	shape1=0.7^6-x^6-y^6-z^6;
-	shape2=0.25^2-x^2-y^2;
-	final=min(shape1, -shape2);
-	return final;}"
+		# Function script defining the CSG solid. 
+		# Change to some other formulae to see how the solid geometry changes 
+		# based on the parameters domain and the sampling resolution defined below
 
-# Adjust the tight bounding box and an optimal resolution
-bboxCenter 0 0 0
-bboxSize 1.4 1.4 1.4
-resolution [100 100 100]
+		definition "function frep(x,y,z,t) {
+			shape1=0.7^6-x^6-y^6-z^6;
+			shape2=0.25^2-x^2-y^2;
+			final=min(shape1, -shape2);
+			return final;
+		}"
 
- }  
+		# Adjust the tight bounding box and an optimal resolution
+		bboxCenter 0 0 0
+		bboxSize 1.4 1.4 1.4
+		resolution [100 100 100]
+	 }
 
-
-appearance FAppearance {
-material FMaterial { 
-# Variable color is defined for the CGS solid
-diffuseColor "r=1; g=(v+1)/2; b=0;"
-   }    }
+	appearance FAppearance {
+		material FMaterial { 
+			diffuseColor "r=1; g=(v+1)/2; b=0;" # Variable color is defined for the CGS solid
+		}
+	}
 }
+
 # Displaying the bounding box with a standard Box object of VRML
 # Size of the bounding box goes to size <x y z> while its centre
 # goes to translation <x y z>
-Transform {translation 0 0 0 children [
-	Shape {geometry Box {size 1.4 1.4 1.4}	
-		   appearance Appearance {material Material 
-			   {diffuseColor 0 1 1 transparency 0.5}}}
-	   ]}
+Transform {
+	translation 0 0 0 children [Shape {
+			geometry Box {size 1.4 1.4 1.4}	
+			appearance Appearance {material Material {diffuseColor 0 1 1 transparency 0.5}}
+	}]
+}

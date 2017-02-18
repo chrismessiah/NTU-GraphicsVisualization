@@ -77,23 +77,24 @@ EXTERNPROTO FTransform [
 	field SFInt32 frames
 ] "http://www3.ntu.edu.sg/home/assourin/FVRML/FVRML.wrl#FTransform"
 FShape {
-appearance FAppearance {
-material FMaterial {
-diffuseColor "
-r=(u-1.25)/2.5;g=(v+1.25)/2.5;b=(w+1.25)/2.5;"
-		}	}
-geometry FGeometry {
-definition "function frep(x,y,z,t){
-cube=min(min(min(min(min(x+1,1-x),y+1),1-y),z+1),1-z);
-sphere1=0.75^2-x^2-(y-1)^2-z^2;
-sphere2=0.25^2-x^2-(y+1)^2-z^2;
-fun1=min(cube,-sphere1);
-cylinder=0.2^2-x^2-y^2;
-cone=min(min((((z)/1)^2-(x/0.5)^2-(y/0.5)^2),1.2-z),z);
-fun2=max(fun1,cone);   
-fun3=min(fun2,-cylinder);
-fun=max(fun3,sphere2);
-return fun;}"
+	appearance FAppearance {
+		material FMaterial {
+			diffuseColor "r=(u-1.25)/2.5;g=(v+1.25)/2.5;b=(w+1.25)/2.5;"
+		}
+	}
+	geometry FGeometry {
+		definition "function frep(x,y,z,t) {
+			cube=min(min(min(min(min(x+1,1-x),y+1),1-y),z+1),1-z);
+			sphere1=0.75^2-x^2-(y-1)^2-z^2;
+			sphere2=0.25^2-x^2-(y+1)^2-z^2;
+			fun1=min(cube,-sphere1);
+			cylinder=0.2^2-x^2-y^2;
+			cone=min(min((((z)/1)^2-(x/0.5)^2-(y/0.5)^2),1.2-z),z);
+			fun2=max(fun1,cone);   
+			fun3=min(fun2,-cylinder);
+			fun=max(fun3,sphere2);
+			return fun;
+		}"
 		bboxSize 2.5 2.5 2.5
 		bboxCenter 0 0 0
 		resolution [75, 75, 75]
