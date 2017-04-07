@@ -1,5 +1,7 @@
 #VRML V2.0 utf8
 
+# The following EXTERNPROTO definitins remain the same for all FVRML scenes.
+
 EXTERNPROTO FGeometry [
 	exposedField SFString definition
 	exposedField MFFloat parameters
@@ -9,7 +11,7 @@ EXTERNPROTO FGeometry [
 	exposedField SFString type
 	exposedField MFNode	parents
 	exposedField SFVec2f timeSpan
-] "http://www.ntu.edu.sg/home/assourin/FVRML/FVRML.wrl#FGeometry"
+] "http://www3.ntu.edu.sg/home/assourin/FVRML/FVRML.wrl#FGeometry"
 EXTERNPROTO FMaterial [
 	exposedField SFString diffuseColor
 	exposedField SFString type
@@ -23,14 +25,14 @@ EXTERNPROTO FMaterial [
 	exposedField MFFloat parameters
 	exposedField MFNode	parents
 	exposedField SFVec2f timeSpan
-] "http://www.ntu.edu.sg/home/assourin/FVRML/FVRML.wrl#FMaterial"
+] "http://www3.ntu.edu.sg/home/assourin/FVRML/FVRML.wrl#FMaterial"
 EXTERNPROTO FTexture3D [
 	exposedField SFString definition
 	exposedField SFString type
 	exposedField MFFloat parameters
 	exposedField MFNode	parents
 	exposedField SFVec2f timeSpan
-] "http://www.ntu.edu.sg/home/assourin/FVRML/FVRML.wrl#FTexture3D"
+] "http://www3.ntu.edu.sg/home/assourin/FVRML/FVRML.wrl#FTexture3D"
 EXTERNPROTO FAppearance [
 	exposedField SFNode	material
 	exposedField SFNode	texture
@@ -38,7 +40,7 @@ EXTERNPROTO FAppearance [
 	exposedField SFNode	texture3D
 	exposedField MFNode	parents
 	eventIn	SFBool refresh
-] "http://www.ntu.edu.sg/home/assourin/FVRML/FVRML.wrl#FAppearance"
+] "http://www3.ntu.edu.sg/home/assourin/FVRML/FVRML.wrl#FAppearance"
 EXTERNPROTO FShape [
 	exposedField SFNode	geometry
 	exposedField SFNode	appearance
@@ -52,7 +54,7 @@ EXTERNPROTO FShape [
 	eventOut SFTime	cycleTime
 	eventIn SFFloat set_fraction
 	field SFInt32 frames
-] "http://www.ntu.edu.sg/home/assourin/FVRML/FVRML.wrl#FShape"
+] "http://www3.ntu.edu.sg/home/assourin/FVRML/FVRML.wrl#FShape"
 EXTERNPROTO FTransform [
 	exposedField SFString operation
 	exposedField SFString type
@@ -75,38 +77,45 @@ EXTERNPROTO FTransform [
 	eventOut SFTime	cycleTime
 	eventIn SFFloat set_fraction
 	field SFInt32 frames
-] "http://www.ntu.edu.sg/home/assourin/FVRML/FVRML.wrl#FTransform"
+] "http://www3.ntu.edu.sg/home/assourin/FVRML/FVRML.wrl#FTransform"
 
-DEF morph FShape {
-	loop TRUE
-	cycleInterval  5
-appearance FAppearance {
-material FMaterial { 
-diffuseColor "r=1; b=0; g=0;"
-#diffuseColor "r=sin(u*2*pi); b=cos(u*8*pi); g=0;"
-parameters [0 1 0 1]
-   }    }
+Background {skyColor 0 0 1}
+
+# External VRML object "coordinate system" is included in the scene
+Inline {url "http://www3.ntu.edu.sg/home/assourin/FVRML/CoordinateAxes.wrl"}
+
+
+FShape {
+# Enabling cycled animation
+loop TRUE
+# Mapping the interval of the internal time t=[0,1] to the actual time in sec.
+cycleInterval 7
+
 geometry FGeometry {
-resolution [30 30]
+resolution [60 60]
 parameters [0 1 0 1]
+# Definition of the animated linear transformation (morphing)
+# of one surface defined by     x1(u,v), y1(u,v), z1(u,v)
+# to another surface defined by x2(u,v), y2(u,v), z2(u,v)
 definition "
 function parametric_x(u,v,w,t)
-{
+{ x1=1.6*(cos(u*pi))^3;
+x2=u;
+  return x1+(x2-x1)*t;        }
 
-x1=-1+2*u;  
-x2=v*cos(u*2*pi);	
-return x1+(x2-x1)*t;
-}
 function parametric_y(u,v,w,t)
-{
+{ y1=1.6*(cos(v*2*pi)*sin(u*pi))^3;
+y2=v;
+  return y1+(y2-y1)*t;       }
 
-y1=-1+2*v; 
-y2=v*sin(u*2*pi);
-	return y1+(y2-y1)*t;
-}
 function parametric_z(u,v,w,t)
-{
-	return 0;
+{ z1=1.6*sin(v*2*pi)*sin(u*pi);
+z2=w;
+  return z1+(z2-z1)*t;        }"
+ }
+
+appearance FAppearance {
+material FMaterial {
+diffuseColor "r=1; b=0; g=0;"
+   }    }
 }
-"
- }    }

@@ -1,4 +1,4 @@
-Formula_number_1 = Your_number_in_the_attendance_list;
+Formula_number_1 = 1
 While Formula_number_1 > 26 {
   Formula_number_1 -= 26;
 }
@@ -8,3 +8,5 @@ Formula_number_2 = Formula_number_1+Numeric_part_of_your_group_name;
 While Formula_number_2 > 26 {
   Formula_number_2 -= 26;
 }
+
+Formula_number_2==4
