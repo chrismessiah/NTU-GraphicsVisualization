@@ -89,21 +89,22 @@ FShape {
 		# based on the parameters domain and the sampling resolution defined below
 
 		definition "function frep(x,y,z,t) {
-      shape1=x^2/4+y^2/4-z^2+6*z-9;
-      shape2=0.1^2-x^2-0.7*y^2;
-			final=min(shape1, -shape2);
+      shape1=x^2/0.25+y^2/0.25-z^2;
+			shape2=z;
+			shape3=x+y;
+			final=max(min(shape1, -shape2), shape3);
 			return final;
 		}"
 
 		# Adjust the tight bounding box and an optimal resolution
 		bboxCenter 0 0 0
 		bboxSize 1.4 1.4 1.4
-		resolution [100 100 100]
+		resolution [150 150 150]
 	 }
 
 	appearance FAppearance {
 		material FMaterial {
-			diffuseColor "r=1; g=(v+1)/2; b=0;" # Variable color is defined for the CGS solid
+			diffuseColor "r=tan(5*u); g=sin(100*v)/2; b=sin(14*u);" # Variable color is defined for the CGS solid
 		}
 	}
 }

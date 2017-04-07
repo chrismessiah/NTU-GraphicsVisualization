@@ -106,7 +106,7 @@ FShape {
 
 	appearance FAppearance {
 		material FMaterial {
-			diffuseColor "r=1; g=(v+1)/2; b=0;" # Variable color is defined for the CGS solid
+			diffuseColor "r=cos(500*u); g=sin(20*v)/2; b=tan(10*u);" # Variable color is defined for the CGS solid
 		}
 	}
 }
