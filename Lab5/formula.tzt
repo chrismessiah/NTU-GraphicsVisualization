@@ -1,0 +1,10 @@
+Formula_number_1 = Your_number_in_the_attendance_list;
+While Formula_number_1 > 26 {
+  Formula_number_1 -= 26;
+}
+
+# Numeric_part_of_your_group_name=3
+Formula_number_2 = Formula_number_1+Numeric_part_of_your_group_name;
+While Formula_number_2 > 26 {
+  Formula_number_2 -= 26;
+}
